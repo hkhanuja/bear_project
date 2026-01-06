@@ -5,5 +5,5 @@ dependencies:
   # python essentials
   - python=3.10
   - pip
-  - python-dotenv
-  # - pip:
+  - pip:
+    - pytest

@@ -12,16 +12,13 @@ class CashBin:
             return True
         return False
     
-    def dispense(self, amount: int) -> None:
-        if amount<=0:
-          raise ValueError("Amount entered must be positive")
-
+    def can_dispense(self, amount: int) -> bool:
         if not self.amount_available(amount):
-          raise ValueError("Amount not available in ATM")  
-
-        self._amount -= amount
+            return False
+        return True
     
-    def deposit(self, amount: int) -> None:
-        if amount<=0:
-          raise ValueError("Amount entered must be positive")
+    def dispense(self, amount: int) -> bool:
+        self._amount -= amount
+
+    def accept_deposit(self, amount: int) -> None:
         self._amount += amount
